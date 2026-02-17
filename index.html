@@ -38,6 +38,27 @@
         margin: 1rem auto 0;
         width: fit-content;
       }
+      button {
+        margin-top: 1rem;
+        border: 0;
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #232f3e;
+        background: #ffcc4d;
+        cursor: pointer;
+      }
+      button:hover {
+        filter: brightness(1.05);
+      }
+      #facts-list {
+        display: none;
+        margin-top: 1rem;
+      }
+      #facts-list.show {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -49,12 +70,28 @@
         <li>Add a headline and call-to-action</li>
         <li>Make it fun and memorable</li>
       </ul>
+      <button id="facts-toggle" type="button">Show 5 fun facts about Alexa</button>
+      <ul id="facts-list">
+        <li>Alexa can set timers, alarms, and reminders with simple voice commands.</li>
+        <li>It can control many smart-home devices like lights, plugs, and thermostats.</li>
+        <li>You can create custom voice commands with Alexa Routines.</li>
+        <li>Alexa can play music, podcasts, audiobooks, and radio stations.</li>
+        <li>Developers can build voice apps for Alexa called Skills.</li>
+      </ul>
       <p id="build-time"></p>
     </main>
     <script>
       const now = new Date();
       document.getElementById("build-time").textContent =
         `Loaded at ${now.toLocaleString()}`;
+      const factsToggle = document.getElementById("facts-toggle");
+      const factsList = document.getElementById("facts-list");
+      factsToggle.addEventListener("click", () => {
+        factsList.classList.toggle("show");
+        factsToggle.textContent = factsList.classList.contains("show")
+          ? "Hide fun facts"
+          : "Show 5 fun facts about Alexa";
+      });
     </script>
   </body>
 </html>
