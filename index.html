@@ -94,6 +94,23 @@
           left: 8px;
         }
       }
+      .tree {
+        position: absolute;
+        width: 10px;
+        height: 30px;
+        background: #8B4513;
+        pointer-events: none;
+      }
+      .tree::before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        width: 30px;
+        height: 15px;
+        background: #228B22;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
@@ -139,34 +156,44 @@
       loginBtn.addEventListener("click", () => {
         alert("Login feature coming soon!");
       });
-      document.addEventListener('keydown', function() {
-        const card = document.querySelector('.card');
-        const rect = card.getBoundingClientRect();
-        const img = document.createElement('img');
-        img.src = 'images/Alexa-Echo-Transparent-Image.png';
-        img.alt = 'Amazon Alexa Echo device';
-        img.style.position = 'absolute';
-        img.style.width = '50px';
-        img.style.pointerEvents = 'none';
-        const sides = ['top', 'bottom', 'left', 'right'];
-        const side = sides[Math.floor(Math.random() * sides.length)];
-        let x, y;
-        if (side === 'top') {
-          y = rect.top - 50;
-          x = rect.left + Math.random() * rect.width;
-        } else if (side === 'bottom') {
-          y = rect.bottom;
-          x = rect.left + Math.random() * rect.width;
-        } else if (side === 'left') {
-          x = rect.left - 50;
-          y = rect.top + Math.random() * rect.height;
-        } else if (side === 'right') {
-          x = rect.right;
-          y = rect.top + Math.random() * rect.height;
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'z') {
+          const tree = document.createElement('div');
+          tree.className = 'tree';
+          const x = Math.random() * (window.innerWidth - 30);
+          const y = Math.random() * (window.innerHeight - 45);
+          tree.style.left = x + 'px';
+          tree.style.top = y + 'px';
+          document.body.appendChild(tree);
+        } else {
+          const card = document.querySelector('.card');
+          const rect = card.getBoundingClientRect();
+          const img = document.createElement('img');
+          img.src = 'images/Alexa-Echo-Transparent-Image.png';
+          img.alt = 'Amazon Alexa Echo device';
+          img.style.position = 'absolute';
+          img.style.width = '50px';
+          img.style.pointerEvents = 'none';
+          const sides = ['top', 'bottom', 'left', 'right'];
+          const side = sides[Math.floor(Math.random() * sides.length)];
+          let x, y;
+          if (side === 'top') {
+            y = rect.top - 50;
+            x = rect.left + Math.random() * rect.width;
+          } else if (side === 'bottom') {
+            y = rect.bottom;
+            x = rect.left + Math.random() * rect.width;
+          } else if (side === 'left') {
+            x = rect.left - 50;
+            y = rect.top + Math.random() * rect.height;
+          } else if (side === 'right') {
+            x = rect.right;
+            y = rect.top + Math.random() * rect.height;
+          }
+          img.style.left = x + 'px';
+          img.style.top = y + 'px';
+          document.body.appendChild(img);
         }
-        img.style.left = x + 'px';
-        img.style.top = y + 'px';
-        document.body.appendChild(img);
       });
     </script>
   </body>
