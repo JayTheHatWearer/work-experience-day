@@ -111,6 +111,18 @@
         background: #228B22;
         border-radius: 50%;
       }
+      .cracked::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3e%3cg stroke='white' stroke-width='4' fill='none'%3e%3cpath d='M100 100 L150 120 L200 100 L250 150 L300 130 L350 160 L400 140'/%3e%3cpath d='M600 200 L650 180 L700 220 L750 200 L800 240 L850 220 L900 260'/%3e%3cpath d='M200 600 L250 620 L300 600 L350 640 L400 620 L450 660'/%3e%3cpath d='M50 400 L100 380 L150 420 L200 400 L250 440 L300 420 L350 460'/%3e%3cpath d='M700 500 L750 520 L800 500 L850 540 L900 520 L950 560'/%3e%3c/g%3e%3c/svg%3e");
+        opacity: 0.8;
+        pointer-events: none;
+        z-index: 9999;
+      }
     </style>
   </head>
   <body>
@@ -165,6 +177,8 @@
           tree.style.left = x + 'px';
           tree.style.top = y + 'px';
           document.body.appendChild(tree);
+        } else if (event.key === ' ') {
+          document.body.classList.toggle('cracked');
         } else {
           const card = document.querySelector('.card');
           const rect = card.getBoundingClientRect();
