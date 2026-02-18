@@ -139,6 +139,35 @@
       loginBtn.addEventListener("click", () => {
         alert("Login feature coming soon!");
       });
+      document.addEventListener('keydown', function() {
+        const card = document.querySelector('.card');
+        const rect = card.getBoundingClientRect();
+        const img = document.createElement('img');
+        img.src = 'images/Alexa-Echo-Transparent-Image.png';
+        img.alt = 'Amazon Alexa Echo device';
+        img.style.position = 'absolute';
+        img.style.width = '50px';
+        img.style.pointerEvents = 'none';
+        const sides = ['top', 'bottom', 'left', 'right'];
+        const side = sides[Math.floor(Math.random() * sides.length)];
+        let x, y;
+        if (side === 'top') {
+          y = rect.top - 50;
+          x = rect.left + Math.random() * rect.width;
+        } else if (side === 'bottom') {
+          y = rect.bottom;
+          x = rect.left + Math.random() * rect.width;
+        } else if (side === 'left') {
+          x = rect.left - 50;
+          y = rect.top + Math.random() * rect.height;
+        } else if (side === 'right') {
+          x = rect.right;
+          y = rect.top + Math.random() * rect.height;
+        }
+        img.style.left = x + 'px';
+        img.style.top = y + 'px';
+        document.body.appendChild(img);
+      });
     </script>
   </body>
 </html>
