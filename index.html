@@ -60,6 +60,22 @@
       button:hover {
         filter: brightness(1.05);
       }
+      #login-btn {
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        border: 0;
+        border-radius: 10px;
+        padding: 0.7rem 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #0b1220;
+        background: #ffb84d;
+        cursor: pointer;
+      }
+      #login-btn:hover {
+        filter: brightness(1.05);
+      }
       #facts-list {
         display: none;
         margin-top: 1rem;
@@ -73,6 +89,10 @@
           top: 8px;
           right: 8px;
         }
+        #login-btn {
+          top: 8px;
+          left: 8px;
+        }
       }
     </style>
   </head>
@@ -82,6 +102,7 @@
       src="images/Alexa-Echo-Transparent-Image.png"
       alt="Amazon Alexa Echo device"
     />
+    <button id="login-btn">Login</button>
     <main class="card">
       <h1>Alexa Marketing Playground — Build something delightful</h1>
       <p>Create a simple, shareable marketing page for Alexa.</p>
@@ -113,6 +134,10 @@
           factsToggle.textContent = factsList.classList.contains("show")
             ? "Hide fun facts"
             : "Show 5 fun facts about Alexa";
+      });
+      const loginBtn = document.getElementById("login-btn");
+      loginBtn.addEventListener("click", () => {
+        alert("Login feature coming soon!");
       });
     </script>
   </body>
