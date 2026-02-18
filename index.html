@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alexa Marketing Playground</title>
+    <title>Alexa Marketing Playground — Demo</title>
     <style>
       :root {
         font-family: Arial, Helvetica, sans-serif;
@@ -13,7 +13,7 @@
         min-height: 100vh;
         display: grid;
         place-items: center;
-        background: linear-gradient(120deg, #232f3e, #00a8e1);
+        background: linear-gradient(120deg, #1f2937, #0ea5e9);
         color: #fff;
       }
       .alexa-corner {
@@ -53,8 +53,8 @@
         padding: 0.7rem 1rem;
         font-size: 1rem;
         font-weight: 700;
-        color: #232f3e;
-        background: #ffcc4d;
+        color: #0b1220;
+        background: #ffb84d;
         cursor: pointer;
       }
       button:hover {
@@ -83,14 +83,14 @@
       alt="Amazon Alexa Echo device"
     />
     <main class="card">
-      <h1>Alexa Marketing Playground</h1>
-      <p>Build a simple marketing page for Alexa with your team.</p>
+      <h1>Alexa Marketing Playground — Build something delightful</h1>
+      <p>Create a simple, shareable marketing page for Alexa.</p>
       <ul>
         <li>Change colors, fonts, and layout</li>
         <li>Add a headline and call-to-action</li>
         <li>Make it fun and memorable</li>
       </ul>
-      <button id="facts-toggle" type="button">Show 5 fun facts about Alexa</button>
+      <button id="facts-toggle" type="button">Show fun facts</button>
       <ul id="facts-list">
         <li>Alexa can set timers, alarms, and reminders with simple voice commands.</li>
         <li>It can control many smart-home devices like lights, plugs, and thermostats.</li>
@@ -110,7 +110,7 @@
         factsList.classList.toggle("show");
         factsToggle.textContent = factsList.classList.contains("show")
           ? "Hide fun facts"
-          : "Show 5 fun facts about Alexa";
+          : "Show fun facts";
       });
     </script>
   </body>
