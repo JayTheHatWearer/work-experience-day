@@ -6,7 +6,7 @@
     <title>Alexa Marketing Playground</title>
     <style>
       :root {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Comic Sans MS', cursive;
       }
       body {
         margin: 0;
@@ -123,6 +123,42 @@
         pointer-events: none;
         z-index: 9999;
       }
+      .fly-away {
+        animation: fly-away 3s ease-out forwards;
+      }
+      @keyframes fly-away {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(200px, -200px); opacity: 0; }
+      }
+      .planet {
+        position: fixed;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .jupiter {
+        width: 100px;
+        height: 100px;
+        background: #D2691E;
+        top: 10%;
+        left: 10%;
+      }
+      .saturn {
+        width: 80px;
+        height: 80px;
+        background: #FAD5A5;
+        top: 20%;
+        right: 10%;
+      }
+      .saturn::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 100px;
+        height: 100px;
+        border: 3px solid #DAA520;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
@@ -132,6 +168,8 @@
       alt="Amazon Alexa Echo device"
     />
     <button id="login-btn">Login</button>
+    <div class="planet jupiter"></div>
+    <div class="planet saturn"></div>
     <main class="card">
       <h1>Alexa Marketing Playground — Build something delightful</h1>
       <p>Create a simple, shareable marketing page for Alexa.</p>
@@ -177,6 +215,7 @@
           tree.style.left = x + 'px';
           tree.style.top = y + 'px';
           document.body.appendChild(tree);
+          setTimeout(() => tree.classList.add('fly-away'), 100);
         } else if (event.key === ' ') {
           document.body.classList.toggle('cracked');
         } else {
@@ -207,6 +246,7 @@
           img.style.left = x + 'px';
           img.style.top = y + 'px';
           document.body.appendChild(img);
+          setTimeout(() => img.classList.add('fly-away'), 100);
         }
       });
     </script>
